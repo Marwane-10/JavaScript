@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>IT-2320 - Lab 1: Language Constructs</title>
+</head>
+<body>
+
+<h1>IT-2320 - Lab 1: Language Constructs</h1>
+
+<h2>Student Name: Marwane Essafi</h2>
+
+<p><strong>Output:</strong></p>
+<div id="output"></div>
+
+<p><strong>Values:</strong></p>
+<div id="values"></div>
+
+<p><strong>Sum:</strong></p>
+<div id="sum"></div>
+
+<script>
+let name = "Marwane Essafi";
+document.write("Lab 1. Completed by " + name + "<br>");
+console.log("Note: Lab 1. Completed by " + name);
+
+document.getElementById("output").innerHTML = "innerHTML value set";
+
+let valuesText = "";
+for (let i = 1; i <= 10; i++) {
+  valuesText += i + "<br>";
+}
+document.getElementById("values").innerHTML = valuesText;
+
+let sum = 0;
+let x = 1;
+while (x <= 10) {
+  sum += x;
+  x++;
+}
+document.getElementById("sum").innerHTML = sum;
+
+let a = 3, b = 6, c = 9;
+document.write((a + b + c) + "<br>");
+
+if (a < b) {
+  document.write("a < b");
+} else {
+  document.write("a > b");
+}
+</script>
+
+</body>
+</html>
