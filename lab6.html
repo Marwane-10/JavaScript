@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Lab 6</title>
+    <style>
+      * { font-family: Roboto, Helvetica, Arial, sans-serif; }
+      body { padding: 10px; }
+    </style>
+  </head>
+  <body>
+    <h1>IT-2320<br>Lab 6 - AJAX, Frameworks, promises</h1>
+    <h2>Student Name: Marwane Essafi</h2>
+
+    <p>
+      AJAX Response:<br>
+      <div id="ajax"></div>
+    </p>
+    <p>
+      Fetch Response:<br>
+      <div id="fetch"></div>
+    </p>
+
+    <script>
+      function loadAjax() {
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", "ajax.txt", true);
+        xhr.onreadystatechange = function() {
+          if (xhr.readyState === 4 && xhr.status === 200) {
+            document.getElementById("ajax").textContent = xhr.responseText;
+          }
+        };
+        xhr.send();
+      }
+
+      function loadFetch() {
+        fetch("fetch.txt")
+          .then(response => {
+            if (!response.ok) throw new Error("Network response was not ok");
+            return response.text();
+          })
+          .then(data => {
+            document.getElementById("fetch").textContent = data;
+          })
+          .catch(error => console.error("Fetch error:", error));
+      }
+
+      window.onload = function() {
+        loadAjax();
+        loadFetch();
+      };
+    </script>
+  </body>
+</html>
