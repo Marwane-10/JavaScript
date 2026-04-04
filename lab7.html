@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Lab 7 - JSON</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<h1>Lab 7 - JSON</h1>
+<h2>Student Name: </h2>
+
+<p>
+  <b>Step 1</b>
+  <blockquote>Given the following: '{"id":"IT-2320", "credits":4, "title":"Interactive Internet Programming"}'<br><br>
+  Parse it to a JSON object called courseObj using JSON.parse().<br><br>Then, use the JavaScript object called courseObj to output the title using document.writeln().<br><br>
+  <script>
+    const courseStr = '{"id":"IT-2320", "credits":4, "title":"Interactive Internet Programming"}';
+    const courseObj = JSON.parse(courseStr);
+    document.writeln(courseObj.title + "<br>");
+  </script>
+  </blockquote>
+</p>
+
+<p>
+  <b>Step 2</b>
+  <blockquote>Given: const text = '[ "Document Object Model", "Language Constructs", "OOP", "Fetch API", "JSON" ]';<br><br>
+  Parse it to a JavaScript array and output each value using document.writeln() separated by a newline.<br><br>
+  <script>
+    const text = '[ "Document Object Model", "Language Constructs", "OOP", "Fetch API", "JSON" ]';
+    const arr = JSON.parse(text);
+    for (let i = 0; i < arr.length; i++) {
+      document.writeln(arr[i] + "<br>");
+    }
+  </script>
+  </blockquote>
+</p>
+
+<p>
+  <b>Step 3</b>
+  <blockquote>Given: const myJSON = '{"id":"IT-2320", "credits":4, "title":"Interactive Internet Programming", "description":"JavaScript"}';<br><br>
+  Parse it, modify the description, and output all values using a single document.writeln() statement.<br><br>
+  <script>
+    const myJSON = '{"id":"IT-2320", "credits":4, "title":"Interactive Internet Programming", "description":"JavaScript"}';
+    const myObj = JSON.parse(myJSON);
+    myObj.description = "An Introduction to JavaScript";
+    document.writeln(myObj.id + ", " + myObj.credits + ", " + myObj.title + ", " + myObj.description + "<br>");
+  </script>
+  </blockquote>
+</p>
+
+<p>
+  <b>Step 4</b>
+  <blockquote>Create an array (courseArray) and JSON string (courseJSON) with IT-1025, IT-2310, IT-2320 and output all values.<br><br>
+  <script>
+    const courseArray = ["IT-1025", "IT-2310", "IT-2320"];
+    const courseJSON = JSON.stringify(courseArray);
+    for (let i = 0; i < courseArray.length; i++) {
+      document.writeln(courseArray[i] + "<br>");
+    }
+    const parsedCourses = JSON.parse(courseJSON);
+    for (let i = 0; i < parsedCourses.length; i++) {
+      document.writeln(parsedCourses[i] + "<br>");
+    }
+  </script>
+  </blockquote>
+</p>
+
+<p>
+  <b>Step 5</b>
+  <blockquote>Read values from courses.txt and output all values.<br><br>
+  <script>
+    fetch('courses.txt')
+      .then(response => response.json())
+      .then(data => {
+        for (let i = 0; i < data.length; i++) {
+          document.writeln(data[i] + "<br>");
+        }
+      })
+      .catch(error => console.error('Error loading courses.txt:', error));
+  </script>
+  </blockquote>
+</p>
+
+<p>
+  <b>Step 6</b>
+  <blockquote>Request JSON from it1025.txt and output the value of title.<br><br>
+  <script>
+    fetch('it1025.txt')
+      .then(response => response.json())
+      .then(data => {
+        document.writeln(data.title + "<br>");
+      })
+      .catch(error => console.error('Error loading it1025.txt:', error));
+  </script>
+  </blockquote>
+</p>
+
+</body>
+</html>
